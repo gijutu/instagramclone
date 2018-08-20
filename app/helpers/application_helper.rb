@@ -6,4 +6,5 @@ module ApplicationHelper
       feed_path
     end
   end
+
 end

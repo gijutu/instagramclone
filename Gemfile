@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'bcrypt', '3.1.11'
+
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'rails', '~> 5.1.1'

@@ -11,6 +11,7 @@ module ImageUploaderApp
    config.time_zone = 'Tokyo'
    config.active_record.default_timezone = :local
    I18n.enforce_available_locales = false
+   I18n.default_locale = :ja
    config.i18n.default_locale = :ja
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1

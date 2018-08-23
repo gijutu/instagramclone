@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Image:</strong>
-  <%= image_tag @feed.image %>
+  <strong>Image:</strong><br>
+  <%= image_tag @feed.image,size:"320x480" %>
 </p>
 
 <%= link_to 'Edit', edit_feed_path(@feed) %> |

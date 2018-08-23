@@ -7,6 +7,8 @@ end
 
 gem 'bcrypt', '3.1.11'
 
+gem 'faker'
+
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'rails', '~> 5.1.1'

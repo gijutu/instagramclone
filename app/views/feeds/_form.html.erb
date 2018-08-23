@@ -1,9 +1,14 @@
 <%= form_with(model: feed, local: true, url:choose_new_or_edit) do |form| %>
 
   <div class="field">
-    <%= form.label :image %>
-    <%= image_tag(@feed.image.url) if @feed.image.url %>
-    <%= form.file_field :image, id: :feed_image %>
+    <tr>
+      <td><%= form.label :image %></td><br>
+      <td><%= image_tag(@feed.image.url,size:"320x480") if @feed.image.url %></td>
+    <br>
+    <td><%= form.file_field :image, id: :feed_image %></td><br><br>
+    <td><%= form.label :content %></td>
+    <td><%= form.text_field :content %></td>
+    </tr>
   </div>
 
   <div class="actions">

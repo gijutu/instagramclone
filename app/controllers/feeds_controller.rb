@@ -10,7 +10,8 @@ class FeedsController < ApplicationController
   # GET /feeds/1
   # GET /feeds/1.json
   def show
-
+    @favorite = current_user.favorites.find_by(feed_id: @feed.id)
+    @user = User.find_by(id: @feed.user_id)
   end
 
   # GET /feeds/new
@@ -24,27 +25,23 @@ class FeedsController < ApplicationController
 
   def confirm
     @feed = Feed.new(feed_params)
+    @feed.user_id = current_user.id
     render :new if @feed.invalid?
   end
 
-
-
   # GET /feeds/1/edit
-  def edit
-  end
-
+  def edit; end
   # POST /feeds
   # POST /feeds.json
   def create
     @feed = Feed.new(feed_params)
-
+    @feed.user_id = current_user.id
     respond_to do |format|
       if @feed.save
-        format.html { redirect_to @feed, notice: 'Feed was successfully created.' }
-        format.json { render :show, status: :created, location: @feed }
+        FeedMailer.feed_mail(@feed).deliver
+        redirect_to @feed, notice: 'Feed was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @feed.errors, status: :unprocessable_entity }
+        render :new
       end
     end
   end
@@ -52,14 +49,11 @@ class FeedsController < ApplicationController
   # PATCH/PUT /feeds/1
   # PATCH/PUT /feeds/1.json
   def update
-    respond_to do |format|
-      if @feed.update(feed_params)
-        format.html { redirect_to @feed, notice: 'Feed was successfully updated.' }
-        format.json { render :show, status: :ok, location: @feed }
-      else
-        format.html { render :edit }
-        format.json { render json: @feed.errors, status: :unprocessable_entity }
-      end
+    @feed.user_id = current_user.id
+    if @feed.update(feed_params)
+      redirect_to @feed, notice: 'Feed was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -77,10 +71,11 @@ class FeedsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_feed
       @feed = Feed.find(params[:id])
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def feed_params
-      params.require(:feed).permit(:image, :image_cache,:content)
+      params.require(:feed).permit(:image, :image_cache,:content, :user_id)
     end
 end

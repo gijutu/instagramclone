@@ -16,6 +16,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def index
+    @feeds = Feed.all
+    @favorites = current_user.favorites.all
+  end
 
   private
   def user_params

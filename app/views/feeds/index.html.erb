@@ -18,7 +18,6 @@
         <td>投稿者<%= feed.user.name %></td>
       </tr>
       <tr>
-        <td><%= link_to 'Favarite',favorites_path %></td>
         <td><%= link_to 'Show', feed %></td>
         <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
         <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>

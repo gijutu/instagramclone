@@ -36,14 +36,12 @@ class FeedsController < ApplicationController
   def create
     @feed = Feed.new(feed_params)
     @feed.user_id = current_user.id
-    respond_to do |format|
       if @feed.save
         FeedMailer.feed_mail(@feed).deliver
         redirect_to @feed, notice: 'Feed was successfully created.'
       else
         render :new
       end
-    end
   end
 
   # PATCH/PUT /feeds/1

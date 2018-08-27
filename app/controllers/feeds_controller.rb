@@ -20,7 +20,10 @@ class FeedsController < ApplicationController
 
   def confirm
     @feed = Feed.new(feed_params)
+    binding.pry
     @feed.user_id = current_user.id
+
+
     render :new if @feed.invalid?
   end
 
@@ -31,7 +34,7 @@ class FeedsController < ApplicationController
     @feed.user_id = current_user.id
       if @feed.save
         FeedMailer.feed_mail(@feed).deliver
-        redirect_to @feed, notice: 'Feed was successfully created.'
+        redirect_to feed_path(@feed.id), notice: 'Feed was successfully created.'
       else
         render :new
       end
@@ -61,7 +64,7 @@ class FeedsController < ApplicationController
     end
 
     def feed_params
-      params.require(:feed).permit(:image, :image_cache,:content, :user_id)
+      params.require(:feed).permit(:image, :image_cache, :content, :user_id)
     end
 
 end

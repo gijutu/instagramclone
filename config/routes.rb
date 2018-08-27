@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/', to: 'sessions#new'
+  root to: 'sessions#new'
   get 'sessions/new'
 
   resources :users, only: [:new,:create,:show]

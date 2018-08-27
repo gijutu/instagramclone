@@ -1,11 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>投稿写真</h1>
+<h1>ユーザーの写真</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Image</th>
+      <th><h3>Image</h3></th>
+      <th><h4>コメント</h4></th>
+      <th><h4>投稿者</h4></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,18 +16,22 @@
     <% @feeds.each do |feed| %>
       <tr>
         <td><%= image_tag feed.image,size:"320x480" %></td>
-        <td><%= feed.content %></td>
-        <td>投稿者<%= feed.user.name %></td>
+        <td><br><%= feed.content %></td>
+        <td><h4><%= feed.user.name %></h4></td>
       </tr>
       <tr>
-        <td><%= link_to 'Show', feed %></td>
-        <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
-        <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><h4><%= link_to '投稿を見る', feed %></h4></td>
+        <td><h4><%= link_to '編集する', edit_feed_path(feed) %></h4></td>
+        <td><h4><%= link_to '削除する', feed, method: :delete, data: { confirm: 'Are you sure?' } %></h4></td>
+      </tr>
+      <tr>
+        <th><h3>Image</h3></th>
+        <th><h4>コメント</h4></th>
+        <th><h4>投稿者</h4></th>
+        <th colspan="3"></th>
       </tr>
     <% end %>
   </tbody>
-</table>
+</table><br>
 
-<br>
-
-<%= link_to 'New Feed', new_feed_path %>
+<h4 class="new_buttan"><%= link_to '新しく投稿する', new_feed_path %></h4>

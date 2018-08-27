@@ -1,5 +1,7 @@
-<h1><%= @user.name %>さん今日は何をしますか？</h1>
+<h1>What are you doing now?, <%= @user.name %>.</h1><br><br>
 
-<%= link_to "インスタグラムに投稿する", new_feed_path %><br>
-<%= link_to "インスタグラムの投稿を見る",feeds_path %><br>
-<%= link_to 'お気に入り一覧', users_path %>
+<div class="list-group">
+<%= link_to "写真を投稿する", new_feed_path,class: "list-group-item" %>
+<%= link_to "ユーザーの写真を見る",feeds_path,class: "list-group-item"%>
+<%= link_to 'お気に入りの写真', users_path,class: "list-group-item" %>
+</div>

@@ -1,18 +1,22 @@
 <p id="notice"><%= notice %></p>
+<h1>写真の詳細</h1>
 
-<p>
-  <strong>Image:</strong><br>
-  <%= image_tag @feed.image,size:"320x480" %>
-  投稿者：<%= @user.name %>
-</p>
+<div class="new_picture" >
+  <div class="well well-lg">
+    <h3>Image</h3>
+    <%= image_tag @feed.image,size:"480x720" %>
+    <h4>投稿者：<%= @user.name %></h4><br>
 
-<%= link_to 'Edit', edit_feed_path(@feed) %> |
-<%= link_to 'Back', feeds_path %>
+    <h4><%= link_to '編集する', edit_feed_path(@feed) %></h4><br>
 
-<% unless @feed.user_id == current_user.id %>
-  <% if @favorite.present? %>
-    <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
-  <% else %>
-    <%= link_to 'お気に入りする', favorites_path(feed_id: @feed.id), method: :post, class: 'btn btn-primary' %>
-  <% end %>
-<% end %>
+    <h4><%= link_to '戻る', feeds_path %></h4><br>
+
+    <% unless @feed.user_id == current_user.id %>
+      <% if @favorite.present? %>
+        <h4><%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+      <% else %>
+        <%= link_to 'お気に入りする', favorites_path(feed_id: @feed.id), method: :post, class: 'btn btn-primary' %></h4>
+      <% end %>
+    <% end %>
+  </div>
+</div>

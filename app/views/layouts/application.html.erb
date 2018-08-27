@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ImageUploaderApp</title>
+    <title>Instagram</title>
     <%= csrf_meta_tags %>
-
+    <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <div class="container">
+    <header class="header"><%= link_to "Instagram", new_session_path %></header>
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
 
+    <article>
+      <div class="contents">
+        <ul class="row">
+          <% if logged_in? %>
+          <li class="col-sm-6 col-md-6"><%= link_to "Profile", user_path(current_user.id) %></li>
+          <li class="col-sm-6 col-md-6"><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+          <% else %>
+          <li class="col-sm-6 col-md-6"><%= link_to "Sign up", new_user_path %></li>
+          <li class="col-sm-6 col-md-6"><%= link_to "Login", new_session_path %></li>
+          <% end %>
+          <%= yield %>
+        </ul>
+      </div>
+    </article>
+  </div>
   <body>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-
-    <% if logged_in? %>
-      <%= link_to "Profile", user_path(current_user.id) %>
-      <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_path %>
-      <%= link_to "Login", new_session_path %>
-    <% end %>
-
-    <%= yield %>
   </body>
 </html>

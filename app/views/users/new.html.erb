@@ -10,21 +10,22 @@
     </ul>
   </div>
 <% end %>
+<h2>新しいアカウントを作ります</h2>
 
-
-
+<div class ="login_form">
 <%= form_with(model: @user, local: true) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 
   <%= f.label :email %>
-  <%= f.email_field :email %>
+  <%= f.email_field :email %><br><br>
 
   <%= f.label :password %>
   <%= f.password_field :password %>
 
   <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
+  <%= f.password_field :password_confirmation %><br><br><br>
 
-  <%= f.submit "Create my account" %>
+  <%= f.submit "新しいアカウントを作る" %>
 <% end %>
+</div>

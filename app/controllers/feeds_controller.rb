@@ -1,6 +1,7 @@
 class FeedsController < ApplicationController
   before_action :set_feed, only: [:show, :edit, :update, :destroy]
 
+
   def index
     @feeds = Feed.all
   end
@@ -20,10 +21,7 @@ class FeedsController < ApplicationController
 
   def confirm
     @feed = Feed.new(feed_params)
-    binding.pry
     @feed.user_id = current_user.id
-
-
     render :new if @feed.invalid?
   end
 

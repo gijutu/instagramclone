@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'bcrypt', '3.1.11'
-
+gem 'faker'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'rails', '~> 5.1.1'
@@ -17,17 +17,23 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'dotenv-rails'
+
 end
 
 group :development do
+  gem 'letter_opener_web'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry-rails'
+  gem 'better_errors'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

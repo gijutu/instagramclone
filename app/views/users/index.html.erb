@@ -1,0 +1,14 @@
+<h1>お気に入りの写真</h1>
+
+<div class="well">
+  <tbody>
+    <% @favorites.each do |favorite| %>
+    <tr>
+      <td><%= image_tag favorite.feed.image,size:"320x480" %></td>
+      <td><%= favorite.feed.content %></td>
+      <td> 　投稿者:<%= favorite.feed.user.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+
+</div>

@@ -1,6 +1,8 @@
-<h1>Editing Feed</h1>
-
-<%= render 'form', feed: @feed %>
-
-<%= link_to 'Show', @feed %> |
-<%= link_to 'Back', feeds_path %>
+<h1>写真を編集する</h1>
+<div class="new_picture" >
+  <div class="well well-lg">
+  <%= render 'form', feed: @feed %><br>
+  <h4><%= link_to '詳細', @feed %></h4><br>
+  <h4><%= link_to '戻る', feeds_path %></h4>
+  </div>
+</div>

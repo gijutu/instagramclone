@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to user_path(@user.id)
+      redirect_to feed_path(@user.id)
     else
       render 'new'
     end
@@ -16,6 +16,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def index
+    @feeds = Feed.all
+    @favorites = current_user.favorites.all
+  end
 
   private
   def user_params

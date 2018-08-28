@@ -30,12 +30,12 @@ class FeedsController < ApplicationController
   def create
     @feed = Feed.new(feed_params)
     @feed.user_id = current_user.id
-      if @feed.save
-        FeedMailer.feed_mail(@feed).deliver
-        redirect_to feed_path(@feed.id), notice: 'Feed was successfully created.'
-      else
-        render :new
-      end
+    if @feed.save
+      FeedMailer.feed_mail(@feed).deliver
+      redirect_to feed_path(@feed.id), notice: 'Feed was successfully created.'
+    else
+      render :new
+    end
   end
 
   def update
@@ -64,5 +64,5 @@ class FeedsController < ApplicationController
     def feed_params
       params.require(:feed).permit(:image, :image_cache, :content, :user_id)
     end
-
+    
 end

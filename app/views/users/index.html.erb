@@ -1,14 +1,15 @@
+<p id="pageTop"><a href="#">top</i></a></p>
 <h1>お気に入りの写真</h1>
 
 <div class="well">
   <tbody>
     <% @favorites.each do |favorite| %>
+      <%= image_tag favorite.feed.image,size:"160x240" %>
     <tr>
-      <td><%= image_tag favorite.feed.image,size:"320x480" %></td>
-      <td><%= favorite.feed.content %></td>
-      <td> 　投稿者:<%= favorite.feed.user.name %></td>
+      <!-- <td> コメント:<%= favorite.feed.content %></td> -->
+      <td> 投稿者:<%= favorite.feed.user.name %></td>
     </tr>
     <% end %>
   </tbody>
-
 </div>
+<h4><%= link_to '戻る', feeds_path %></h4>

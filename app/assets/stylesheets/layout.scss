@@ -1,0 +1,42 @@
+li{
+    list-style:none;
+}
+
+ul{
+    padding:0;
+}
+
+.header{
+    font-family: 'Amatic SC', cursive;
+    font-size:30px;
+    font-weight:bold;
+    text-align:center;
+    padding:1%;
+}
+
+.header a{
+    color:black;
+}
+
+.menu{
+    background-color:#012F4B;
+    color:#fff;
+}
+
+.menu li {
+    padding:5% 10%;
+    text-align:center;
+}
+
+.contents li{
+    background-color:#CF2E92;
+    padding:1% 1%;
+    box-sizing: border-box;
+    border: solid 1px #fff;
+    text-align:center;
+}
+
+.contents li a{
+    font-size: 20px;
+    color:white
+}

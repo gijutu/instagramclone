@@ -2,15 +2,15 @@
 
   <div class="field">
     <tr>
-      <td><h3><%= form.label :image %></h3></td><br>
-      <td><%= image_tag(@feed.image.url,size:"320x480") if @feed.image.url %></td>
-    <br><br>
-    <td><%= form.file_field :image, id: :feed_image %></td><br><br>
-    <td><h3><%= form.label :コメント %></h3></td><br>
-    <td><%= form.text_field :content %></td>
+      <td><h3><%= form.label :写真を選ぶ %></h3></td><br>
+      <td><%= image_tag(@feed.image.url,size:"320x480") if @feed.image.url %></td><br><br>
+      <td><%= form.file_field :image, id: :feed_image %></td><br><br>
+      <td><h3><%= form.label :コメントを入力 %></h3></td><br>
+      <td><%= form.text_field :content %></td>
     </tr>
   </div>
   <div class="actions">
     <%= form.submit %>
   </div>
+
 <% end %>

@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to new_session_path(@user.id)
+      redirect_to new_session_path(@user.id),notice: '新規アカウントを作成しました'
     else
       render 'new'
     end
@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   end
 
   private
+  
   def user_params
     params.require(:user).permit(:name,:email,:password,:password_confirmation)
   end

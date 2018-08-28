@@ -1,5 +1,6 @@
+<p id="pageTop"><a href="#">top</i></a></p>
 <div class ="top_image">
-<p><%= image_tag("top.jpg",width:"50%") %><%= image_tag("top2.jpg",width:"50%") %></p>
+  <p><%= image_tag("top.jpg",width:"50%") %><%= image_tag("top2.jpg",width:"50%") %></p>
 </div>
 
 <h2>- 素敵な写真を共有する -</h2>
@@ -7,13 +8,13 @@
 <h1>Log in</h1>
 <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
   <div class ="login_form">
-  <%= f.label :email %>
-  <%= f.email_field :email %>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
 
-  <%= f.submit "Log in" %>
+    <%= f.submit "Log in" %>
+  </div>
 <% end %>
-</div>
-<h3><span class="label label-danger"><%= link_to '新規登録する', new_user_path %></span></h3>
+<br><br><h3><span class="label label-danger"><%= link_to '新規登録する', new_user_path %></span></h3>

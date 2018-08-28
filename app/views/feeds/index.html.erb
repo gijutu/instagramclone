@@ -1,6 +1,7 @@
+<p id="pageTop"><a href="#">top</i></a></p>
 <h1>ユーザーの写真</h1>
 
-<table class="table">
+<table class="table"></div>
   <thead>
     <tr>
       <th><h3>Image</h3></th>
@@ -13,7 +14,7 @@
   <tbody>
     <% @feeds.each do |feed| %>
       <tr>
-        <td><%= image_tag feed.image,size:"320x480" %></td>
+        <td><%= link_to (image_tag feed.image,size:"320x480"),feed,class:"pc"%><%= link_to (image_tag feed.image,size:"160x240"),feed,class:"sp" %></td>
         <td><br><%= feed.content %></td>
         <td><h4><%= feed.user.name %></h4></td>
       </tr>
@@ -24,8 +25,8 @@
       </tr>
       <tr>
         <th><h3>Image</h3></th>
-        <th><h4>コメント</h4></th>
-        <th><h4>投稿者</h4></th>
+        <th><br><h4>コメント</h4></th>
+        <th><br><h4>投稿者</h4></th>
         <th colspan="3"></th>
       </tr>
     <% end %>

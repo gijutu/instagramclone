@@ -1,4 +1,3 @@
-
 <h1>写真の詳細</h1>
 
 <div class="new_picture" >
@@ -6,9 +5,7 @@
     <h3>Image</h3>
     <%= image_tag @feed.image,size:"480x720" %>
     <h4>投稿者：<%= @user.name %></h4><br>
-
     <h4><%= link_to '編集する', edit_feed_path(@feed) %></h4><br>
-
     <h4><%= link_to '戻る', feeds_path %></h4><br>
 
     <% unless @feed.user_id == current_user.id %>

@@ -31,8 +31,8 @@ class FeedsController < ApplicationController
     @feed = Feed.new(feed_params)
     @feed.user_id = current_user.id
     if @feed.save
-      FeedMailer.feed_mail(@feed).deliver
-      redirect_to feed_path(@feed.id), notice: 'Feed was successfully created.'
+      # FeedMailer.feed_mail(@feed).deliver
+      redirect_to feed_path(@feed.id), notice: '投稿が完了しました'
     else
       render :new
     end
@@ -41,7 +41,7 @@ class FeedsController < ApplicationController
   def update
     @feed.user_id = current_user.id
     if @feed.update(feed_params)
-      redirect_to @feed, notice: 'Feed was successfully updated.'
+      redirect_to @feed, notice: '投稿を編集しました'
     else
       render :edit
     end
@@ -50,7 +50,7 @@ class FeedsController < ApplicationController
   def destroy
     @feed.destroy
     respond_to do |format|
-      format.html { redirect_to feeds_url, notice: 'Feed was successfully destroyed.' }
+      format.html { redirect_to feeds_url, notice: '投稿を削除しました' }
       format.json { head :no_content }
     end
   end
@@ -64,5 +64,5 @@ class FeedsController < ApplicationController
     def feed_params
       params.require(:feed).permit(:image, :image_cache, :content, :user_id)
     end
-    
+
 end

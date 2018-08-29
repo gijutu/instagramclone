@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to new_session_path,notice: '新規アカウントを作成しました'
+      redirect_to new_session_path(@user_id),notice: '新規アカウントを作成しました'
     else
       render 'new'
     end
